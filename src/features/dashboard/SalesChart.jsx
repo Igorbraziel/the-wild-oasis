@@ -63,14 +63,16 @@ function SalesChart({ bookings, numDays }) {
         {format(allDates.at(-1), "MMM dd yyyy")}
       </Heading>
 
-      <ResponsiveContainer height={300} width="100%">
+      <ResponsiveContainer height={160} width="100%">
         <AreaChart data={bookingsData}>
           <XAxis
             dataKey="label"
+            fontSize={10}
             tick={{ fill: colors.text }}
             tickLine={{ stroke: colors.text }}
           />
           <YAxis
+          fontSize={10}
             unit="$"
             tick={{ fill: colors.text }}
             tickLine={{ stroke: colors.text }}

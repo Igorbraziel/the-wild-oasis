@@ -5,6 +5,7 @@ import Row from "../../ui/Row";
 import useTodayActivity from "../bookings/useTodayActivity";
 import Spinner from "../../ui/Spinner";
 import TodayItem from "./TodayItem";
+import { device } from "../../styles/breakpoints";
 
 const StyledToday = styled.div`
   /* Box */
@@ -12,12 +13,24 @@ const StyledToday = styled.div`
   border: 1px solid var(--color-grey-100);
   border-radius: var(--border-radius-md);
 
-  padding: 3.2rem;
   display: flex;
   flex-direction: column;
-  gap: 2.4rem;
+  padding: 1.2rem;
+  gap: 1rem;
+  padding-top: 1.4rem;
   grid-column: 1 / span 2;
-  padding-top: 2.4rem;
+
+  @media ${device.tablet} {
+    padding: 2.2rem;
+    gap: 1.4rem;
+    padding-top: 2rem;
+  }
+
+  @media ${device.laptop} {
+    padding: 3.2rem;
+    gap: 2.4rem;
+    padding-top: 2.4rem;
+  }
 `;
 
 const TodayList = styled.ul`
@@ -34,9 +47,19 @@ const TodayList = styled.ul`
 
 const NoActivity = styled.p`
   text-align: center;
-  font-size: 1.8rem;
+  font-size: 1rem;
+  margin-top: 0.4rem;
   font-weight: 500;
-  margin-top: 0.8rem;
+
+  @media ${device.tablet} {
+    font-size: 1.3rem;
+    margin-top: 0.6rem;
+  }
+
+  @media ${device.laptop} {
+    font-size: 1.8rem;
+    margin-top: 0.8rem;
+  }
 `;
 
 function TodayActivity() {

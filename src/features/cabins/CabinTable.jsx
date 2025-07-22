@@ -38,7 +38,7 @@ function CabinTable() {
 
   return (
     <Menus>
-      <Table columns="0.6fr 1.8fr 2.2fr 1fr 1fr 1fr" role="table">
+      <Table columns="4rem 1fr 1.4fr 1fr 1fr 1fr" role="table">
         <Table.Header role="row">
           <div>Image</div>
           <div>Cabin</div>

@@ -1,7 +1,15 @@
-import { Cell, Legend, Pie, PieChart, ResponsiveContainer, Tooltip } from "recharts";
+import {
+  Cell,
+  Legend,
+  Pie,
+  PieChart,
+  ResponsiveContainer,
+  Tooltip,
+} from "recharts";
 import styled from "styled-components";
 import { useDarkMode } from "../../context/DarkModeContext";
 import Heading from "../../ui/Heading";
+import { device } from "../../styles/breakpoints";
 
 const ChartBox = styled.div`
   /* Box */
@@ -9,15 +17,38 @@ const ChartBox = styled.div`
   border: 1px solid var(--color-grey-100);
   border-radius: var(--border-radius-md);
 
-  padding: 2.4rem 3.2rem;
+  padding: 0.4rem 0.6rem;
   grid-column: 3 / span 2;
 
   & > *:first-child {
-    margin-bottom: 1.6rem;
+    margin-bottom: 0.8rem;
+
+    @media ${device.tablet} {
+      margin-bottom: 1.4rem;
+    }
+
+    @media ${device.laptop} {
+      margin-bottom: 1.6rem;
+    }
+  }
+
+  /* Media query for smaller screens */
+  @media (max-width: 768px) { 
+    .recharts-legend-wrapper {
+      display: none !important;
+    }
   }
 
   & .recharts-pie-label-text {
     font-weight: 600;
+  }
+
+  @media ${device.tablet} {
+    padding: 1.8rem 2.2rem;
+  }
+
+  @media ${device.laptop} {
+    padding: 2.4rem 3.2rem;
   }
 `;
 
@@ -136,23 +167,23 @@ function prepareData(startData, stays) {
 
 function DurationChart({ confirmedStays }) {
   const { isDarkMode } = useDarkMode();
-  const startData = isDarkMode ? startDataLight : startDataDark;
+  const startData = isDarkMode ? startDataDark : startDataLight;
 
   const data = prepareData(startData, confirmedStays);
 
   return (
     <ChartBox>
       <Heading as="h2">Stay Duration Summary</Heading>
-      <ResponsiveContainer height={240} width="100%">
+      <ResponsiveContainer height="80%">
         <PieChart>
           <Pie
             data={data}
             nameKey="duration"
             dataKey="value"
-            innerRadius={85}
-            outerRadius={110}
-            cx="40%"
-            cy="50%"
+            innerRadius={50}
+            outerRadius={70}
+            cx="50%" // center horizontally
+            cy="50%" // center vertically
             paddingAngle={3}
           >
             {data.map((entry) => (
@@ -169,7 +200,7 @@ function DurationChart({ confirmedStays }) {
             align="right"
             width="30%"
             layout="vertical"
-            iconSize={15}
+            iconSize={2}
             iconType="circle"
           />
         </PieChart>

@@ -1,22 +1,53 @@
 import styled, { css } from "styled-components";
+import { device } from "../styles/breakpoints";
 
 const sizes = {
   small: css`
-    font-size: 1.2rem;
-    padding: 0.4rem 0.8rem;
+    font-size: 0.6rem;
+    padding: 0.1rem 0.3rem;
     text-transform: uppercase;
     font-weight: 600;
     text-align: center;
+
+    @media ${device.tablet} {
+      font-size: 0.9rem;
+      padding: 0.2rem 0.6rem;
+    }
+
+    @media ${device.laptop} {
+      font-size: 1.2rem;
+      padding: 0.4rem 0.8rem;
+    }
   `,
   medium: css`
-    font-size: 1.4rem;
-    padding: 1.2rem 1.6rem;
+    font-size: 0.7rem;
+    padding: 0.7rem 0.9rem;
     font-weight: 500;
+
+    @media ${device.tablet} {
+      font-size: 1rem;
+      padding: 1rem 1.2rem;
+    }
+
+    @media ${device.laptop} {
+      font-size: 1.4rem;
+      padding: 1.2rem 1.6rem;
+    }
   `,
   large: css`
-    font-size: 1.6rem;
-    padding: 1.2rem 2.4rem;
+    font-size: 0.9rem;
+    padding: 0.8rem 1.3rem;
     font-weight: 500;
+
+    @media ${device.tablet} {
+      font-size: 1.1rem;
+      padding: 1rem 1.8rem;
+    }
+
+    @media ${device.laptop} {
+      font-size: 1.6rem;
+      padding: 1.2rem 2.4rem;
+    }
   `,
 };
 

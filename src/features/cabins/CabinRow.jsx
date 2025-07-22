@@ -11,6 +11,7 @@ import ButtonIcon from "../../ui/ButtonIcon";
 import ConfirmDelete from "../../ui/ConfirmDelete";
 import Table from "../../ui/Table";
 import Menus from "../../ui/Menus";
+import { device } from "../../styles/breakpoints";
 
 const Img = styled.img`
   display: block;
@@ -22,10 +23,17 @@ const Img = styled.img`
 `;
 
 const Cabin = styled.div`
-  font-size: 1.6rem;
+  font-size: 0.8rem;
   font-weight: 600;
   color: var(--color-grey-600);
   font-family: "Sono";
+
+  @media ${device.tablet} {
+    font-size: 1.2rem;
+  }
+  @media ${device.laptop} {
+    font-size: 1.6rem;
+  }
 `;
 
 const Price = styled.div`
@@ -41,7 +49,42 @@ const Discount = styled.div`
 
 const ButtonsDiv = styled.div`
   display: flex;
-  gap: 5px;
+  gap: 3px;
+`;
+
+const ButtonCabinRow = styled.button`
+background: none;
+border: none;
+padding: 0.3rem;
+border-radius: var(--border-radius-sm);
+transition: all 0.2s;
+
+@media ${device.tablet} {
+  padding: 0.4rem;
+}
+@media ${device.laptop} {
+  padding: 0.6rem;
+}
+
+&:hover {
+  background-color: var(--color-grey-100);
+}
+
+& svg {
+  width: 0.8rem;
+  height: 0.8rem;
+  color: var(--color-brand-600);
+
+  @media ${device.tablet} {
+    width: 1.4rem;
+    height: 1.4rem;
+  }
+
+  @media ${device.laptop} {
+    width: 2rem;
+    height: 2rem;
+  }
+}
 `;
 
 function CabinRow({ cabin }) {
@@ -81,18 +124,18 @@ function CabinRow({ cabin }) {
         <Price>{formatCurrency(regularPrice)}</Price>
         {discount ? <Discount>{discount}</Discount> : <span>&mdash;</span>}
         <ButtonsDiv>
-          <ButtonIcon onClick={handleDuplicate} disabled={isWorking}>
+          <ButtonCabinRow onClick={handleDuplicate} disabled={isWorking}>
             {" "}
             <HiSquare2Stack />
-          </ButtonIcon>
+          </ButtonCabinRow>
           <Modal>
             <Modal.Open opens="cabin-edit">
-              <ButtonIcon
+              <ButtonCabinRow
                 onClick={() => setIsEditing((isEditing) => !isEditing)}
                 disabled={isWorking}
               >
                 <HiPencil />
-              </ButtonIcon>
+              </ButtonCabinRow>
             </Modal.Open>
             <Modal.Window name="cabin-edit">
               <CreateCabinForm cabinToEdit={cabin} />
@@ -100,9 +143,9 @@ function CabinRow({ cabin }) {
           </Modal>
           <Modal>
             <Modal.Open opens="cabin-confirm-delete">
-              <ButtonIcon disabled={isWorking}>
+              <ButtonCabinRow disabled={isWorking}>
                 <HiTrash />
-              </ButtonIcon>
+              </ButtonCabinRow>
             </Modal.Open>
             <Modal.Window name="cabin-confirm-delete">
               <ConfirmDelete

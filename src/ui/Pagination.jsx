@@ -2,6 +2,7 @@ import { HiChevronLeft, HiChevronRight } from "react-icons/hi2";
 import { useSearchParams } from "react-router-dom";
 import styled from "styled-components";
 import { PAGE_SIZE } from "../utils/constants";
+import { device } from "../styles/breakpoints";
 
 const StyledPagination = styled.div`
   width: 100%;
@@ -11,8 +12,17 @@ const StyledPagination = styled.div`
 `;
 
 const P = styled.p`
-  font-size: 1.4rem;
-  margin-left: 0.8rem;
+  font-size: 0.8rem;
+  margin-left: 0.4rem;
+
+  @media ${device.tablet} {
+    font-size: 1rem;
+    margin-left: 0.6rem;
+    }
+    @media ${device.laptop} {
+      font-size: 1.4rem;
+      margin-left: 0.8rem;
+    }
 
   & span {
     font-weight: 600;
@@ -31,14 +41,25 @@ const PaginationButton = styled.button`
   border: none;
   border-radius: var(--border-radius-sm);
   font-weight: 500;
-  font-size: 1.4rem;
 
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 0.4rem;
-  padding: 0.6rem 1.2rem;
+  font-size: 0.8rem;
+  gap: 0.2rem;
+  padding: 0.3rem 0.7rem;
   transition: all 0.3s;
+
+  @media ${device.tablet} {
+    font-size: 1rem;
+    gap: 0.3rem;
+    padding: 0.4rem 1rem;
+  }
+  @media ${device.laptop} {
+    font-size: 1.4rem;
+    gap: 0.4rem;
+    padding: 0.6rem 1.2rem;
+  }
 
   &:has(span:last-child) {
     padding-left: 0.4rem;
@@ -49,8 +70,17 @@ const PaginationButton = styled.button`
   }
 
   & svg {
-    height: 1.8rem;
-    width: 1.8rem;
+    height: 1rem;
+    width: 1rem;
+
+    @media ${device.tablet} {
+      height: 1.2rem;
+      width: 1.2rem;
+    }
+    @media ${device.laptop} {
+      height: 1.8rem;
+      width: 1.8rem;
+    }
   }
 
   &:hover:not(:disabled) {
@@ -82,7 +112,7 @@ function Pagination({ count }) {
     setSearchParams(searchParams);
   }
 
-  if(pageCount <= 1) return null;
+  if (pageCount <= 1) return null;
 
   return (
     <StyledPagination>
@@ -98,7 +128,10 @@ function Pagination({ count }) {
         <PaginationButton onClick={previousPage} disabled={currentPage === 1}>
           <HiChevronLeft /> <span>Previous</span>
         </PaginationButton>
-        <PaginationButton onClick={nextPage} disabled={currentPage === pageCount}>
+        <PaginationButton
+          onClick={nextPage}
+          disabled={currentPage === pageCount}
+        >
           <span>Next</span> <HiChevronRight />
         </PaginationButton>
       </Buttons>

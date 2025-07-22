@@ -1,12 +1,26 @@
-import { HiOutlineCalendarDays, HiOutlineCog6Tooth, HiOutlineHome, HiOutlineHomeModern, HiOutlineUsers } from "react-icons/hi2";
+import {
+  HiOutlineCalendarDays,
+  HiOutlineCog6Tooth,
+  HiOutlineHome,
+  HiOutlineHomeModern,
+  HiOutlineUsers,
+} from "react-icons/hi2";
 import { NavLink } from "react-router-dom";
 import styled from "styled-components";
-
+import { device } from "../styles/breakpoints";
 
 const NavList = styled.ul`
   display: flex;
   flex-direction: column;
-  gap: 0.8rem;
+  gap: 0.4rem;
+
+  @media ${device.tablet} {
+    gap: 0.6rem;
+  }
+
+  @media ${device.laptop} {
+    gap: 0.8rem;
+  }
 `;
 
 const StyledNavLink = styled(NavLink)`
@@ -14,13 +28,25 @@ const StyledNavLink = styled(NavLink)`
   &:visited {
     display: flex;
     align-items: center;
-    gap: 1.2rem;
+    gap: 0.6rem;
 
     color: var(--color-grey-600);
-    font-size: 1.6rem;
+    font-size: 0.9rem;
     font-weight: 500;
-    padding: 1.2rem 2.4rem;
+    padding: 0.6rem 1.2rem;
     transition: all 0.3s;
+
+    @media ${device.tablet} {
+      gap: 0.9rem;
+      font-size: 1.2rem;
+      padding: 0.9rem 1.8rem;
+    }
+
+    @media ${device.laptop} {
+      gap: 1.2rem;
+      font-size: 1.6rem;
+      padding: 1.2rem 2.4rem;
+    }
   }
 
   /* This works because react-router places the active class on the active NavLink */
@@ -34,10 +60,20 @@ const StyledNavLink = styled(NavLink)`
   }
 
   & svg {
-    width: 2.4rem;
-    height: 2.4rem;
+    width: 1.6rem;
+    height: 1.6rem;
     color: var(--color-grey-400);
     transition: all 0.3s;
+
+    @media ${device.tablet} {
+      width: 2rem;
+      height: 2rem;
+    }
+
+    @media ${device.laptop} {
+      width: 2.4rem;
+      height: 2.4rem;
+    }
   }
 
   &:hover svg,

@@ -19,12 +19,20 @@ import Spinner from "../../ui/Spinner";
 import Modal from "../../ui/Modal";
 import ConfirmDelete from "../../ui/ConfirmDelete";
 import useDeleteBooking from "./useDeleteBooking";
+import { device } from "../../styles/breakpoints";
 
 const Cabin = styled.div`
-  font-size: 1.6rem;
+  font-size: 0.7rem;
   font-weight: 600;
   color: var(--color-grey-600);
   font-family: "Sono";
+
+  @media ${device.tablet} {
+    font-size: 1.1rem;
+  }
+  @media ${device.laptop} {
+    font-size: 1.6rem;
+  }
 `;
 
 const Stacked = styled.div`
@@ -38,7 +46,14 @@ const Stacked = styled.div`
 
   & span:last-child {
     color: var(--color-grey-500);
-    font-size: 1.2rem;
+    font-size: 0.5rem;
+
+    @media ${device.tablet} {
+      font-size: 0.8rem;
+    }
+    @media ${device.laptop} {
+      font-size: 1.2rem;
+    }
   }
 `;
 

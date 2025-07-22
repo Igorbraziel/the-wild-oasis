@@ -1,25 +1,47 @@
 import { createContext, useContext } from "react";
 import styled from "styled-components";
+import { device } from "../styles/breakpoints";
 
 const StyledTable = styled.div`
   border: 1px solid var(--color-grey-200);
 
-  font-size: 1.4rem;
+  font-size: 0.7rem;
   background-color: var(--color-grey-0);
   border-radius: 7px;
   overflow: hidden;
+
+  @media ${device.tablet} {
+    font-size: 1rem;
+  }
+  @media ${device.laptop} {
+    font-size: 1.4rem;
+  }
 `;
 
 const CommonRow = styled.div`
   display: grid;
   grid-template-columns: ${(props) => props.columns};
-  column-gap: 2.4rem;
+  column-gap: 1.6rem;
   align-items: center;
   transition: none;
+
+  @media ${device.tablet} {
+    column-gap: 2rem;
+  }
+  @media ${device.laptop} {
+    column-gap: 2.4rem;
+  }
 `;
 
 const StyledHeader = styled(CommonRow)`
-  padding: 1.6rem 2.4rem;
+  padding: 1rem;
+
+  @media ${device.tablet} {
+    padding: 1.2rem;
+  }
+  @media ${device.laptop} {
+    padding: 1.6rem;
+  }
 
   background-color: var(--color-grey-50);
   border-bottom: 1px solid var(--color-grey-100);
@@ -30,7 +52,14 @@ const StyledHeader = styled(CommonRow)`
 `;
 
 const StyledRow = styled(CommonRow)`
-  padding: 1.2rem 2.4rem;
+  padding: 0.8rem 1.2rem;
+
+  @media ${device.tablet} {
+    padding: 1rem 1.6rem;
+  }
+  @media ${device.laptop} {
+    padding: 1.2rem 2.4rem;
+  }
 
   &:not(:last-child) {
     border-bottom: 1px solid var(--color-grey-100);
@@ -45,7 +74,14 @@ const Footer = styled.footer`
   background-color: var(--color-grey-50);
   display: flex;
   justify-content: center;
-  padding: 1.2rem;
+  padding: 0.8rem;
+
+  @media ${device.tablet} {
+    padding: 1rem;
+  }
+  @media ${device.laptop} {
+    padding: 1.2rem;
+  }
 
   /* This will hide the footer when it contains no child elements. Possible thanks to the parent selector :has 🎉 */
   &:not(:has(*)) {
@@ -54,10 +90,19 @@ const Footer = styled.footer`
 `;
 
 const Empty = styled.p`
-  font-size: 1.6rem;
   font-weight: 500;
   text-align: center;
-  margin: 2.4rem;
+  font-size: 0.8rem;
+  margin: 1rem;
+
+  @media ${device.tablet} {
+    font-size: 1rem;
+    margin: 1.4rem;
+  }
+  @media ${device.laptop} {
+    font-size: 1.6rem;
+    margin: 2.4rem;
+  }
 `;
 
 const TableContext = createContext();

@@ -3,6 +3,7 @@ import { createPortal } from "react-dom";
 import { HiEllipsisVertical } from "react-icons/hi2";
 import styled from "styled-components";
 import useCloseOnOutsideClick from "../hooks/useCloseOnOutsideClick";
+import { device } from "../styles/breakpoints";
 
 const StyledMenu = styled.div`
   display: flex;
@@ -23,9 +24,18 @@ const StyledToggle = styled.button`
   }
 
   & svg {
-    width: 2.4rem;
-    height: 2.4rem;
+    width: 1.2rem;
+    height: 1.2rem;
     color: var(--color-grey-700);
+
+    @media ${device.tablet} {
+      width: 1.8rem;
+      height: 1.8rem;
+    }
+    @media ${device.laptop} {
+      width: 2.4rem;
+      height: 2.4rem;
+    }
   }
 `;
 
@@ -45,23 +55,43 @@ const StyledButton = styled.button`
   text-align: left;
   background: none;
   border: none;
-  padding: 1.2rem 2.4rem;
-  font-size: 1.4rem;
+  padding: 0.8rem 1rem;
+  font-size: 0.8rem;
+  gap: 0.9rem;
   transition: all 0.2s;
 
   display: flex;
   align-items: center;
-  gap: 1.6rem;
+
+  @media ${device.tablet} {
+    padding: 0.9rem 1.4rem;
+    font-size: 1rem;
+    gap: 1.2rem;
+  }
+  @media ${device.laptop} {
+    padding: 1.2rem 2.4rem;
+    font-size: 1.4rem;
+    gap: 1.6rem;
+  }
 
   &:hover {
     background-color: var(--color-grey-50);
   }
 
   & svg {
-    width: 1.6rem;
-    height: 1.6rem;
+    width: 0.8rem;
+    height: 0.8rem;
     color: var(--color-grey-400);
     transition: all 0.3s;
+
+    @media ${device.tablet} {
+      width: 1.2rem;
+      height: 1.2rem;
+    }
+    @media ${device.laptop} {
+      width: 1.6rem;
+      height: 1.6rem;
+    }
   }
 `;
 

@@ -1,12 +1,27 @@
 import styled from "styled-components";
+import { device } from "../../styles/breakpoints";
 
 const StyledFormRow = styled.div`
   display: grid;
   align-items: center;
-  grid-template-columns: 24rem 1fr 1.2fr;
-  gap: 2.4rem;
+  grid-template-columns: 14rem 1fr 1.2fr;
+  gap: 1.2rem;
 
-  padding: 1.2rem 0;
+  padding: 0.8rem 0;
+
+  @media ${device.tablet} {
+    grid-template-columns: 18rem 1fr 1.2fr;
+    gap: 1.6rem;
+
+    padding: 0.9rem 0;
+  }
+
+  @media ${device.laptop} {
+    grid-template-columns: 24rem 1fr 1.2fr;
+    gap: 2.4rem;
+
+    padding: 1.2rem 0;
+  }
 
   &:first-child {
     padding-top: 0;
@@ -23,7 +38,15 @@ const StyledFormRow = styled.div`
   &:has(button) {
     display: flex;
     justify-content: flex-end;
-    gap: 1.2rem;
+    gap: 0.8rem;
+
+    @media ${device.tablet} {
+      gap: 1rem;
+    }
+
+    @media ${device.laptop} {
+      gap: 1.2rem;
+    }
   }
 `;
 
@@ -32,8 +55,16 @@ const Label = styled.label`
 `;
 
 const Error = styled.span`
-  font-size: 1.4rem;
+  font-size: 1rem;
   color: var(--color-red-700);
+
+  @media ${device.tablet} {
+    font-size: 1.2rem;
+  }
+
+  @media ${device.laptop} {
+    font-size: 1.4rem;
+  }
 `;
 
 function FormRow({ label, error, children }) {
