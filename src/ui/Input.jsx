@@ -7,11 +7,11 @@ const Input = styled.input`
   padding: 4px 8px;
   border: 1px solid var(--color-grey-400);
   border-radius: 8px;
-  max-width: 10rem;
-  font-size: 0.7rem;
+  max-width: 15rem;
+  font-size: 0.8rem;
 
   @media ${device.tablet} {
-    max-width: 20rem;
+    max-width: 24rem;
     font-size: 1rem;
   }
 

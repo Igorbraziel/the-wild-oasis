@@ -1,6 +1,7 @@
 import styled from "styled-components";
+import { device } from "../styles/breakpoints";
 
-const StyledCheckbox = styled.div`
+const StyledCheckbox = styled.div` 
   display: flex;
   gap: 1.6rem;
 
@@ -22,6 +23,15 @@ const StyledCheckbox = styled.div`
     display: flex;
     align-items: center;
     gap: 0.8rem;
+    font-size: 1.3rem;
+
+    @media ${device.tablet}{
+      font-size: 1.6rem;
+    }
+
+    @media ${device.laptop}{
+      font-size: 1.9rem;
+    }
   }
 `;
 

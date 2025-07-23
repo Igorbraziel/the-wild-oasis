@@ -4,10 +4,11 @@ import { device } from "../styles/breakpoints";
 
 const StyledLogo = styled.div`
   text-align: center;
+  padding: 0;
 `;
 
 const Img = styled.img`
-  height: 7rem;
+  height: 6rem;
   width: auto;
 
   @media ${device.tablet}{

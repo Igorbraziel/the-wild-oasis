@@ -18,10 +18,12 @@ import ConfirmDelete from "../../ui/ConfirmDelete";
 import useDeleteBooking from "./useDeleteBooking";
 import Empty from "../../ui/Empty";
 
+
 const HeadingGroup = styled.div`
   display: flex;
   gap: 2.4rem;
   align-items: center;
+  padding: 0.4rem 2rem;
 `;
 
 function BookingDetail() {

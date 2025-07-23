@@ -11,6 +11,7 @@ import DataItem from "../../ui/DataItem";
 import { Flag } from "../../ui/Flag";
 
 import { formatDistanceFromNow, formatCurrency } from "../../utils/helpers";
+import { device } from "../../styles/breakpoints";
 
 const StyledBookingDataBox = styled.section`
   /* Box */
@@ -23,44 +24,103 @@ const StyledBookingDataBox = styled.section`
 
 const Header = styled.header`
   background-color: var(--color-brand-500);
-  padding: 2rem 4rem;
+  padding: 1rem 2rem;
   color: #e0e7ff;
-  font-size: 1.8rem;
+  font-size: 1rem;
   font-weight: 500;
   display: flex;
   align-items: center;
   justify-content: space-between;
 
+  @media ${device.tablet} {
+    font-size: 1.4rem;
+    padding: 1.4rem 3rem;
+  }
+
+  @media ${device.laptop} {
+    font-size: 1.8rem;
+    padding: 2rem 4rem;
+  }
+
   svg {
-    height: 3.2rem;
-    width: 3.2rem;
+    height: 1.8rem;
+    width: 1.8rem;
+
+    @media ${device.tablet} {
+      height: 2.4rem;
+      width: 2.4rem;
+    }
+
+    @media ${device.laptop} {
+      height: 3.2rem;
+      width: 3.2rem;
+    }
   }
 
   & div:first-child {
     display: flex;
     align-items: center;
-    gap: 1.6rem;
     font-weight: 600;
-    font-size: 1.8rem;
+    gap: 0.9rem;
+    font-size: 1rem;
+
+    @media ${device.tablet} {
+      gap: 1.2rem;
+      font-size: 1.4rem;
+    }
+
+    @media ${device.laptop} {
+      gap: 1.6rem;
+      font-size: 1.8rem;
+    }
   }
 
   & span {
     font-family: "Sono";
-    font-size: 2rem;
-    margin-left: 4px;
+    font-size: 1rem;
+    margin-left: 5px;
+
+    @media ${device.tablet} {
+      font-size: 1.4rem;
+    }
+
+    @media ${device.laptop} {
+      font-size: 2rem;
+    }
   }
 `;
 
 const Section = styled.section`
-  padding: 3.2rem 4rem 1.2rem;
+  padding: 1.6rem 2.2rem 0.8rem;
+
+  @media ${device.tablet} {
+    padding: 2.6rem 3rem 1rem;
+  }
+
+  @media ${device.laptop} {
+    padding: 3.2rem 4rem 1.2rem;
+  }
 `;
 
 const Guest = styled.div`
   display: flex;
   align-items: center;
-  gap: 1.2rem;
-  margin-bottom: 1.6rem;
+  gap: 0.8rem;
+  margin-bottom: 1rem;
   color: var(--color-grey-500);
+  font-size: 0.8rem;
+
+  @media ${device.tablet} {
+    gap: 1rem;
+    margin-bottom: 1.2rem;
+    font-size: 1.2rem;
+  }
+
+  @media ${device.laptop} {
+    gap: 1.2rem;
+    margin-bottom: 1.6rem;
+    font-size: 1.6rem;
+  }
 
   & p:first-of-type {
     font-weight: 500;
@@ -72,9 +132,19 @@ const Price = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 1.6rem 3.2rem;
   border-radius: var(--border-radius-sm);
-  margin-top: 2.4rem;
+  padding: 1rem 1.6rem;
+  margin-top: 1.6rem;
+
+  @media ${device.tablet} {
+    padding: 1.3rem 2.5rem;
+    margin-top: 2rem;
+  }
+
+  @media ${device.laptop} {
+    padding: 1.6rem 3.2rem;
+    margin-top: 2.4rem;
+  }
 
   background-color: ${(props) =>
     props.$isPaid ? "var(--color-green-100)" : "var(--color-yellow-100)"};
@@ -83,22 +153,50 @@ const Price = styled.div`
 
   & p:last-child {
     text-transform: uppercase;
-    font-size: 1.4rem;
+    font-size: 0.8rem;
     font-weight: 600;
+
+    @media ${device.tablet} {
+      font-size: 1.1rem;
+    }
+
+    @media ${device.laptop} {
+      font-size: 1.4rem;
+    }
   }
 
   svg {
-    height: 2.4rem;
-    width: 2.4rem;
+    height: 1.6rem;
+    width: 1.6rem;
     color: currentColor !important;
+
+    @media ${device.tablet} {
+      height: 2rem;
+      width: 2rem;
+    }
+
+    @media ${device.laptop} {
+      height: 2.4rem;
+      width: 2.4rem;
+    }
   }
 `;
 
 const Footer = styled.footer`
-  padding: 1.6rem 4rem;
-  font-size: 1.2rem;
+  padding: 0.8rem 2rem;
+  font-size: 0.8rem;
   color: var(--color-grey-500);
   text-align: right;
+
+  @media ${device.tablet} {
+    padding: 1.2rem 3rem;
+    font-size: 1rem;
+  }
+
+  @media ${device.laptop} {
+    padding: 1.6rem 4rem;
+    font-size: 1.2rem;
+  }
 `;
 
 // A purely presentational component

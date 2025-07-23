@@ -18,18 +18,20 @@ const StyledToday = styled.div`
   padding: 1.2rem;
   gap: 1rem;
   padding-top: 1.4rem;
-  grid-column: 1 / span 2;
+  grid-column: 1 / 5;
 
   @media ${device.tablet} {
     padding: 2.2rem;
     gap: 1.4rem;
     padding-top: 2rem;
+    grid-column: 1 / span 2;
   }
 
   @media ${device.laptop} {
     padding: 3.2rem;
     gap: 2.4rem;
     padding-top: 2.4rem;
+    grid-column: 1 / span 2;
   }
 `;
 

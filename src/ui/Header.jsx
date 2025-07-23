@@ -5,18 +5,18 @@ import { device } from "../styles/breakpoints";
 
 const StyledHeader = styled.header`
   background-color: var(--color-grey-200);
-  padding: 1rem 1.5rem;
+  padding: 1rem 4rem;
   gap: 3rem;
   display: flex;
   justify-content: flex-end;
+  align-items: center;
 
   @media ${device.tablet} {
-    padding: 1.4rem 3rem;
-    
+    padding: 1.4rem 5rem;
   }
 
   @media ${device.laptop} {
-    padding: 2rem 4rem;
+    padding: 2rem 6rem;
   }
 `;
 

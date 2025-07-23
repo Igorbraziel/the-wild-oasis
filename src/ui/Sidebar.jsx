@@ -5,7 +5,7 @@ import { device } from "../styles/breakpoints";
 
 const StyledSidabar = styled.aside`
   background-color: var(--color-grey-0);
-  padding: 1.5rem 1rem;
+  padding: 1rem;
   grid-row: 1 / -1;
   display: flex;
   flex-direction: column;

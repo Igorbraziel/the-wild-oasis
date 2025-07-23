@@ -3,6 +3,7 @@ import { createPortal } from "react-dom";
 import { HiXMark } from "react-icons/hi2";
 import styled from "styled-components";
 import useCloseOnOutsideClick from "../hooks/useCloseOnOutsideClick";
+import { device } from "../styles/breakpoints";
 
 const StyledModal = styled.div`
   position: fixed;
@@ -12,8 +13,15 @@ const StyledModal = styled.div`
   background-color: var(--color-grey-0);
   border-radius: var(--border-radius-lg);
   box-shadow: var(--shadow-lg);
-  padding: 3.2rem 4rem;
+  padding: 2rem 2rem;
   transition: all 0.5s;
+
+  @media ${device.tablet} {
+    padding: 2.6rem 3rem;
+  }
+  @media ${device.laptop} {
+    padding: 3.2rem 4rem;
+  }
 `;
 
 const Overlay = styled.div`
@@ -44,8 +52,16 @@ const Button = styled.button`
   }
 
   & svg {
-    width: 2.4rem;
-    height: 2.4rem;
+    width: 1.7rem;
+    height: 1.7rem;
+    @media ${device.tablet} {
+      width: 2.1rem;
+      height: 2.1rem;
+    }
+    @media ${device.laptop} {
+      width: 2.4rem;
+      height: 2.4rem;
+    }
     /* Sometimes we need both */
     /* fill: var(--color-grey-500);
     stroke: var(--color-grey-500); */
@@ -72,7 +88,7 @@ function Window({ children, name }) {
   const { openName, close } = useContext(ModalContext);
 
   const { ref } = useCloseOnOutsideClick(close);
-  
+
   if (openName !== name) return null;
 
   return createPortal(
@@ -81,7 +97,7 @@ function Window({ children, name }) {
         <Button onClick={close}>
           <HiXMark />
         </Button>
-        <div>{cloneElement(children, { onCloseModal: close})}</div>
+        <div>{cloneElement(children, { onCloseModal: close })}</div>
       </StyledModal>
     </Overlay>,
     document.body

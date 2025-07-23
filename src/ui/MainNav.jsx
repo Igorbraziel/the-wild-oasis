@@ -27,6 +27,8 @@ const StyledNavLink = styled(NavLink)`
   &:link,
   &:visited {
     display: flex;
+    flex-direction: column;
+    justify-content: center;
     align-items: center;
     gap: 0.6rem;
 
@@ -40,12 +42,18 @@ const StyledNavLink = styled(NavLink)`
       gap: 0.9rem;
       font-size: 1.2rem;
       padding: 0.9rem 1.8rem;
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-start;
     }
 
     @media ${device.laptop} {
       gap: 1.2rem;
       font-size: 1.6rem;
       padding: 1.2rem 2.4rem;
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-start;
     }
   }
 

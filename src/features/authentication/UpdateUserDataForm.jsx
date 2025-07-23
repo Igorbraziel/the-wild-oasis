@@ -14,6 +14,7 @@ const ButtonsDiv = styled.div`
   display: flex;
   justify-content: flex-end;
   gap: 3rem;
+  margin-right: 3rem
 `;
 
 function UpdateUserDataForm() {

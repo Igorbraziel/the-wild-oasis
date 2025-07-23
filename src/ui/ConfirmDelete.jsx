@@ -1,9 +1,10 @@
 import styled from "styled-components";
 import Button from "./Button";
 import Heading from "./Heading";
+import { device } from "../styles/breakpoints";
 
 const StyledConfirmDelete = styled.div`
-  width: 40rem;
+  max-width: 40rem;
   display: flex;
   flex-direction: column;
   gap: 1.2rem;
@@ -11,6 +12,15 @@ const StyledConfirmDelete = styled.div`
   & p {
     color: var(--color-grey-500);
     margin-bottom: 1.2rem;
+    font-size: 1rem;
+
+    @media ${device.tablet}{
+      font-size: 1.4rem;
+    }
+
+    @media ${device.laptop}{
+      font-size: 1.8rem;
+    }
   }
 
   & div {

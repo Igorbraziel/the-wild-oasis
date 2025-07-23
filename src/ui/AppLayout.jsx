@@ -8,7 +8,6 @@ const Main = styled.main`
   background-color: var(--color-grey-50);
   color: var(--color-grey-900);
   padding: 2rem 1rem;
-  
 
   @media ${device.tablet} {
     padding: 4rem 2rem;
@@ -21,7 +20,7 @@ const Main = styled.main`
 
 const StyledAppLayout = styled.div`
   display: grid;
-  grid-template-columns: 13rem 1fr;
+  grid-template-columns: 7rem 1fr;
   grid-template-rows: auto 1fr;
   height: 100dvh;
 
@@ -36,10 +35,11 @@ const StyledAppLayout = styled.div`
 
 const Container = styled.div`
   margin: 0 auto;
-  max-width: 60rem;
+  max-width: 45rem;
   display: flex;
   flex-direction: column;
   gap: 1.2rem;
+  overflow: scroll;
 
   @media ${device.tablet} {
     max-width: 85rem;

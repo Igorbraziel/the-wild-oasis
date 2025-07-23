@@ -8,6 +8,7 @@ import SalesChart from "./SalesChart";
 import DurationChart from "./DurationChart";
 import TodayActivity from "../check-in-out/TodayActivity";
 import { device } from "../../styles/breakpoints";
+import useMediaQuery from "../../hooks/useMediaQuery";
 
 const StyledDashboardLayout = styled.div`
   display: grid;
@@ -37,6 +38,8 @@ function DashboardLayout() {
   } = useRecentStays();
   const { cabins, isLoading: isLoadingCabins } = useCabins();
 
+  const isTablet = useMediaQuery("(min-width: 768px)");
+
   if (isLoadingRecentBookings || isLoadingStays || isLoadingCabins)
     return <Spinner />;
 
@@ -49,7 +52,7 @@ function DashboardLayout() {
         totalCabins={cabins.length}
       />
       <TodayActivity />
-      <DurationChart confirmedStays={confirmedStays} />
+      {isTablet && <DurationChart confirmedStays={confirmedStays} />}
       <SalesChart bookings={recentBookings} numDays={numDays} />
     </StyledDashboardLayout>
   );

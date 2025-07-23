@@ -1,7 +1,8 @@
 import styled from "styled-components";
+import { device } from "../styles/breakpoints";
 
 const FileInput = styled.input.attrs({ type: "file" })`
-  font-size: 1.4rem;
+  font-size: 0.8rem;
   border-radius: var(--border-radius-sm);
 
   &::file-selector-button {
@@ -19,6 +20,14 @@ const FileInput = styled.input.attrs({ type: "file" })`
     &:hover {
       background-color: var(--color-brand-700);
     }
+  }
+
+  @media ${device.tablet} {
+    font-size: 1rem;
+  }
+
+  @media ${device.laptop} {
+    font-size: 1.4rem;
   }
 `;
 
