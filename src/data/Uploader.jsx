@@ -7,6 +7,8 @@ import { subtractDates } from "../utils/helpers";
 import { bookings } from "./data-bookings";
 import { cabins } from "./data-cabins";
 import { guests } from "./data-guests";
+import styled from "styled-components";
+import { device } from "../styles/breakpoints";
 
 // const originalSettings = {
 //   minBookingLength: 3,
@@ -14,6 +16,35 @@ import { guests } from "./data-guests";
 //   maxGuestsPerBooking: 10,
 //   breakfastPrice: 15,
 // };
+
+const StyledUploader = styled.div`
+  font-size: 1rem;
+  margin-top: auto;
+  background: "#8499de";
+  padding: 2px;
+  border-radius: 5px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  margin-bottom: 20rem;
+
+  @media ${device.tablet} {
+    font-size: 1.5rem;
+    line-height: 2;
+    padding: 4px;
+    gap: 4px;
+    margin-bottom: 1rem;
+  }
+
+  @media ${device.laptop} {
+    font-size: 2rem;
+    line-height: 2.5;
+    padding: 8px;
+    gap: 8px;
+  }
+`;
+
 
 async function deleteGuests() {
   const { error } = await supabase.from("guests").delete().gt("id", 0);
@@ -130,18 +161,7 @@ function Uploader() {
   }
 
   return (
-    <div
-      style={{
-        marginTop: "auto",
-        backgroundColor: "#8499de",
-        padding: "8px",
-        borderRadius: "5px",
-        textAlign: "center",
-        display: "flex",
-        flexDirection: "column",
-        gap: "8px",
-      }}
-    >
+    <StyledUploader>
       <h3>SAMPLE DATA</h3>
 
       <Button onClick={uploadAll} disabled={isLoading}>
@@ -151,8 +171,9 @@ function Uploader() {
       <Button onClick={uploadBookings} disabled={isLoading}>
         Upload bookings ONLY
       </Button>
-    </div>
+    </StyledUploader>
   );
 }
+
 
 export default Uploader;
