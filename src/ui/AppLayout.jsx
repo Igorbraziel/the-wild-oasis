@@ -39,7 +39,7 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   gap: 1.2rem;
-  overflow: scroll;
+  overflow-x: auto;
 
   @media ${device.tablet} {
     max-width: 85rem;

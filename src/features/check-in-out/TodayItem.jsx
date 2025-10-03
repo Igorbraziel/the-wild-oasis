@@ -13,7 +13,7 @@ const StyledTodayItem = styled.li`
   font-size: 0.9rem;
   padding: 0.4rem 0;
   align-items: center;
-  overflow: scroll;
+  overflow: auto;
 
   border-bottom: 1px solid var(--color-grey-100);
 
